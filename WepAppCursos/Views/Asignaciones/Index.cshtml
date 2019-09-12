@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WepAppCursos.Models.Asignacion>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Bienvenid@s</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IntructorID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Curso)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntructorID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curso.CursoID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AsignacionID">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.AsignacionID">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.AsignacionID">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
